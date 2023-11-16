@@ -1,4 +1,4 @@
-
+import MovieCard from "./Moviecard";
 function App() {
   return (
 
@@ -6,6 +6,7 @@ function App() {
     <h1>
       movie app 
     </h1>
+    <MovieCard/>
     </>
   );
 }
