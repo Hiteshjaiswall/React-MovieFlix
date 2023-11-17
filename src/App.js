@@ -1,4 +1,5 @@
-import MovieCard from "./Moviecard";
+
+import MovieList from "./MovieList";
 function App() {
   return (
 
@@ -6,7 +7,7 @@ function App() {
     <h1>
       movie app 
     </h1>
-    <MovieCard/>
+    <MovieList/>
     </>
   );
 }

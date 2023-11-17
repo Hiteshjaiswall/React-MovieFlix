@@ -87,7 +87,7 @@ class MovieCard extends React.Component {
                             </div>
                             {/* // conditional rendering for the fav and unfav buttpn  */}
                             {fav?<button className="favourite-btn" onClick={this.handelfav}>Favourtie</button> :  <button className="unfavourite-btn" onClick={this.handelfav}>Un-Favourtie</button>}
-                            {kart?<button className="cart-btn" onClick={this.handelkart}>Add to cart</button> :  <button className="unfavourite-btn" onClick={this.handelkart}>Remove</button>}
+                            {kart?<button className="cart-btn" onClick={this.handelkart}>Add to cart</button> :  <button className="unfavourite-btn" onClick={this.handelkart}>Remove From Cart</button>}
                             
                         </div>
                     </div>
