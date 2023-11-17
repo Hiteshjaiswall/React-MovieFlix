@@ -19,12 +19,34 @@ class MovieCard extends React.Component {
     // })
     // second form
     this.setState((previousState)=>{
+        if(previousState.stars<=4.5){
         return {
             stars: previousState.stars+=0.5,
         }
+    }
     })
     //  now we have two forms which to use we require previous state to change 
     //  so we should use the second form
+    }
+    handelfav=()=>{
+        this.setState({
+            fav:!this.state.fav
+        })
+    }
+    decstars=(()=>{
+        this.setState((previousState)=>{
+            if(previousState.stars >= 0.5){
+            return {
+                
+                stars:previousState.stars-+0.5
+                
+            }}
+        })
+    })
+    handelkart=()=>{
+        this.setState({
+            kart:!this.state.kart
+        })
     }
     constructor(){
         super();
@@ -35,14 +57,16 @@ class MovieCard extends React.Component {
             plot:"fighting to save the world ",
             price:199,
             rating:8.9,
-            stars:0
+            stars:0,
+            fav:true,
+            kart:true,
         }
         // this.addstars=this.state.bind(this);
     }
     //  use render function 
     render() {
 //  important here we are destructuring the object 
-        const {title, plot, rating, price, stars}=this.state;
+        const {title, plot, rating, price, stars, fav, kart}=this.state;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -56,13 +80,15 @@ class MovieCard extends React.Component {
                         <div className="footer">
                             <div className="rating">{rating}</div>
                             <div className="star-dis">
-                                <img className="str-btn" alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
+                                <img className="str-btn" onClick={this.decstars} alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
                                 <img className="stars" alt ="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" />
                                 <img onClick={this.addStars} className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
                             <span className="starcCount">{stars}</span>
                             </div>
-                            <button className="favourite-btn">Favourtie</button>
-                            <button className="cart-btn">Add to cart</button>
+                            {/* // conditional rendering for the fav and unfav buttpn  */}
+                            {fav?<button className="favourite-btn" onClick={this.handelfav}>Favourtie</button> :  <button className="unfavourite-btn" onClick={this.handelfav}>Un-Favourtie</button>}
+                            {kart?<button className="cart-btn" onClick={this.handelkart}>Add to cart</button> :  <button className="unfavourite-btn" onClick={this.handelkart}>Remove</button>}
+                            
                         </div>
                     </div>
                 </div>
