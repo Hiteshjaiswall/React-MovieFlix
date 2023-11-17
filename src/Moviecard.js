@@ -8,21 +8,41 @@ class MovieCard extends React.Component {
     //  this here is undefined now hwy is that because it gets lost 
     //  we need to bind it to instance of class 
         console.log("this state:", this.state);
+    //  no we want to increase the stars counter so lets see how e sill do it 
+    // this.state.stars+=0.5;
+    //  for the bouve to work e have to call the rerender function again an agian 
+    //  we wll use the set state function to do it that the react provide us on it own 
+    //  this is form one 
+    //  this will work fine 
+    // this.setState({
+    //     stars:this.state.stars+=0.5,
+    // })
+    // second form
+    this.setState((previousState)=>{
+        return {
+            stars: previousState.stars+=0.5,
+        }
+    })
+    //  now we have two forms which to use we require previous state to change 
+    //  so we should use the second form
     }
     constructor(){
         super();
+        //  weneedtostrorethedata baout the componenet in the state
+        //  second feature it have is to update the componenet data wihtout redirecting
         this.state={
             title:"the avengers",
             plot:"fighting to save the world ",
             price:199,
             rating:8.9,
+            stars:0
         }
         // this.addstars=this.state.bind(this);
     }
     //  use render function 
     render() {
 //  important here we are destructuring the object 
-        const {title, plot, rating, price}=this.state;
+        const {title, plot, rating, price, stars}=this.state;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -39,7 +59,7 @@ class MovieCard extends React.Component {
                                 <img className="str-btn" alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
                                 <img className="stars" alt ="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" />
                                 <img onClick={this.addStars} className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
-                            <span className="starcCount">0</span>
+                            <span className="starcCount">{stars}</span>
                             </div>
                             <button className="favourite-btn">Favourtie</button>
                             <button className="cart-btn">Add to cart</button>
