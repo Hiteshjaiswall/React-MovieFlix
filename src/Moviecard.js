@@ -2,7 +2,13 @@ import React from "react";
 class MovieCard extends React.Component {
     // we are uding state to make the program easy so thet we dont have to hard code evertime we are taking a use of the state that is the build in object in the react 
     // single sourse of truth coming soon we will use the signgle sourse
-
+    // event handeler for the stars
+    addStars=()=>{
+        // console.log("stars are added int his shit ")
+    //  this here is undefined now hwy is that because it gets lost 
+    //  we need to bind it to instance of class 
+        console.log("this state:", this.state);
+    }
     constructor(){
         super();
         this.state={
@@ -11,6 +17,7 @@ class MovieCard extends React.Component {
             price:199,
             rating:8.9,
         }
+        // this.addstars=this.state.bind(this);
     }
     //  use render function 
     render() {
@@ -31,8 +38,8 @@ class MovieCard extends React.Component {
                             <div className="star-dis">
                                 <img className="str-btn" alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
                                 <img className="stars" alt ="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" />
-                                <img className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
-                            <span>0</span>
+                                <img onClick={this.addStars} className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
+                            <span className="starcCount">0</span>
                             </div>
                             <button className="favourite-btn">Favourtie</button>
                             <button className="cart-btn">Add to cart</button>
