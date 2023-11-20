@@ -3,51 +3,51 @@ class MovieCard extends React.Component {
     // we are uding state to make the program easy so thet we dont have to hard code evertime we are taking a use of the state that is the build in object in the react 
     // single sourse of truth coming soon we will use the signgle sourse
     // event handeler for the stars
-    addStars=()=>{
-        // console.log("stars are added int his shit ")
-    //  this here is undefined now hwy is that because it gets lost 
-    //  we need to bind it to instance of class 
-        console.log("this state:", this.state);
-    //  no we want to increase the stars counter so lets see how e sill do it 
-    // this.state.stars+=0.5;
-    //  for the bouve to work e have to call the rerender function again an agian 
-    //  we wll use the set state function to do it that the react provide us on it own 
-    //  this is form one 
-    //  this will work fine 
-    // this.setState({
-    //     stars:this.state.stars+=0.5,
+    // addStars=()=>{
+    //     // console.log("stars are added int his shit ")
+    // //  this here is undefined now hwy is that because it gets lost 
+    // //  we need to bind it to instance of class 
+    //     console.log("this state:", this.state);
+    // //  no we want to increase the stars counter so lets see how e sill do it 
+    // // this.state.stars+=0.5;
+    // //  for the bouve to work e have to call the rerender function again an agian 
+    // //  we wll use the set state function to do it that the react provide us on it own 
+    // //  this is form one 
+    // //  this will work fine 
+    // // this.setState({
+    // //     stars:this.state.stars+=0.5,
+    // // })
+    // // second form
+    // this.setState((previousState)=>{
+    //     if(previousState.stars<=4.5){
+    //     return {
+    //         stars: previousState.stars+=0.5,
+    //     }
+    // }
     // })
-    // second form
-    this.setState((previousState)=>{
-        if(previousState.stars<=4.5){
-        return {
-            stars: previousState.stars+=0.5,
-        }
-    }
-    })
-    //  now we have two forms which to use we require previous state to change 
-    //  so we should use the second form
-    }
-    handelfav=()=>{
-        this.setState({
-            fav:!this.state.fav
-        })
-    }
-    decstars=(()=>{
-        this.setState((previousState)=>{
-            if(previousState.stars >= 0.5){
-            return {
+    // //  now we have two forms which to use we require previous state to change 
+    // //  so we should use the second form
+    // }
+    // handelfav=()=>{
+    //     this.setState({
+    //         fav:!this.state.fav
+    //     })
+    // }
+    // decstars=(()=>{
+    //     this.setState((previousState)=>{
+    //         if(previousState.stars >= 0.5){
+    //         return {
                 
-                stars:previousState.stars-+0.5
+    //             stars:previousState.stars-+0.5
                 
-            }}
-        })
-    })
-    handelkart=()=>{
-        this.setState({
-            kart:!this.state.kart
-        })
-    }
+    //         }}
+    //     })
+    // })
+    // handelkart=()=>{
+    //     this.setState({
+    //         kart:!this.state.kart
+    //     })
+    // }
     //  use render function 
     render() {
 //  important here we are destructuring the object 
@@ -56,13 +56,12 @@ class MovieCard extends React.Component {
         //  this is the one way to pass we can pas individually 
         // const {title, plot, rating, price, stars, fav, kart}=this.props;
         // im accesing props direct i passed as the object so thats wh imm using this 
-        
-        const {title, plot, rating, price, stars, fav, kart}=this.props.movies;
+        const {title, plot, rating, price, stars, fav, kart, poster}=this.props.movies;
         return (
             <div className="main">
                 <div className="movie-card">
                     <div className="left">
-                        <img alt="poster" src="https://rukminim2.flixcart.com/image/850/1000/jxhv1jk0/poster/c/x/v/medium-thor-avengers-endgame-new-poster-for-room-office-endgame-original-imafgyfefdnvuvjh.jpeg?q=90"/>
+                        <img alt="poster" src={poster}/>
                     </div>
                     <div className="right">
                         <div className="title"> {title}</div>
