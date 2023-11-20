@@ -48,25 +48,16 @@ class MovieCard extends React.Component {
             kart:!this.state.kart
         })
     }
-    constructor(){
-        super();
-        //  weneedtostrorethedata baout the componenet in the state
-        //  second feature it have is to update the componenet data wihtout redirecting
-        this.state={
-            title:"the avengers",
-            plot:"fighting to save the world ",
-            price:199,
-            rating:8.9,
-            stars:0,
-            fav:true,
-            kart:true,
-        }
-        // this.addstars=this.state.bind(this);
-    }
     //  use render function 
     render() {
 //  important here we are destructuring the object 
-        const {title, plot, rating, price, stars, fav, kart}=this.state;
+        // const {title, plot, rating, price, stars, fav, kart}=this.state;
+        //  now we are getting our state from the props 
+        //  this is the one way to pass we can pas individually 
+        // const {title, plot, rating, price, stars, fav, kart}=this.props;
+        // im accesing props direct i passed as the object so thats wh imm using this 
+        
+        const {title, plot, rating, price, stars, fav, kart}=this.props.movies;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -97,3 +88,17 @@ class MovieCard extends React.Component {
     }
 }
 export default MovieCard;
+
+//  props cannot be modiied int he clild 
+// states can be modifieed in the child componenet 
+// using the props int he function componenet 
+//  we need to pass props here 
+// function Studenet (props){
+//     we wont use this. props bbecause we are not in the class wight now 
+// const { stdentname, marks}=props
+//     return (
+//         <>
+//         <h1>Name , {Studentname}</h1> 
+//         </>
+//     )
+// }
