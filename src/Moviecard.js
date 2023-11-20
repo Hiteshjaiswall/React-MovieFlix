@@ -57,6 +57,7 @@ class MovieCard extends React.Component {
         // const {title, plot, rating, price, stars, fav, kart}=this.props;
         // im accesing props direct i passed as the object so thats wh imm using this 
         const {title, plot, rating, price, stars, fav, kart, poster}=this.props.movies;
+        const {movies, addStar, decStar}=this.props;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -70,10 +71,10 @@ class MovieCard extends React.Component {
                         <div className="footer">
                             <div className="rating">{rating}</div>
                             <div className="star-dis">
-                                <img className="str-btn" onClick={this.decstars} alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
+                                <img className="str-btn" onClick={()=>{decStar(movies)}} alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
                                 <img className="stars" alt ="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" />
-                                <img onClick={this.addStars} className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
-                            <span className="starcCount">{stars}</span>
+                                <img onClick= {()=>{addStar(movies)}} className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/748/748113.png"/>
+                            <span className="starsCount">{stars}</span>
                             </div>
                             {/* // conditional rendering for the fav and unfav buttpn  */}
                             {fav?<button className="favourite-btn" onClick={this.handelfav}>Favourtie</button> :  <button className="unfavourite-btn" onClick={this.handelfav}>Un-Favourtie</button>}

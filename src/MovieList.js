@@ -46,6 +46,30 @@ class MovieList extends React.Component {
         }
         // this.addstars=this.state.bind(this);
     }
+    //  event handeler no will be differenet that we were using tin the initial 4
+
+    handleIncStar= (movie) => {
+        const{movies}=this.state;
+        const mid= movies.indexOf(movie)
+        if(movies[mid].stars>=5){
+            return;
+        }
+        movies[mid].stars+=0.5;
+        this.setState({
+            movies:movies
+        })
+    }
+    handledecStar= (movie) => {
+        const{movies}=this.state;
+        const mid= movies.indexOf(movie)
+        if(movies[mid].stars<=0){
+            return;
+        }
+        movies[mid].stars-=0.5;
+        this.setState({
+            movies:movies
+        })
+    }
     render() {
         // const{title, plot, price, rating , stars, fav, kart}=this.state;
         const {movies}=this.state;
@@ -63,7 +87,7 @@ class MovieList extends React.Component {
                         />
             </> */}
             {movies.map((movie) => <MovieCard movies={movie}
-                        />)}
+            addStar={this.handleIncStar}   decStar={this.handledecStar}         />)}
             </>
             
         )
