@@ -67,9 +67,9 @@ class MovieCard extends React.Component {
                     <div className="right">
                         <div className="title"> {title}</div>
                         <div className="plot"> {plot}</div>
-                        <div className="price"> {price} </div>
+                        <div className="price"> Rs.{price} </div>
                         <div className="footer">
-                            <div className="rating">{rating}</div>
+                            <div className="rating">IMDb:{rating}</div>
                             <div className="star-dis">
                                 <img className="str-btn" onClick={()=>{decStar(movies)}} alt="decarease" src="https://t3.ftcdn.net/jpg/04/22/93/56/240_F_422935625_gTnXZMO6EZZgjOvFDVNMfUFosiMNIppp.jpg"/>
                                 <img className="stars" alt ="stars" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" />
