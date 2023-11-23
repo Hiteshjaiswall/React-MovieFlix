@@ -1,5 +1,7 @@
-
+//  importing movie list from movie list it is a react componenet that we created 
 import MovieList from "./MovieList";
+//  importing ht navbar from the nav bar it s a react compoenent that we created 
+import Navbar from "./Navbar";
 function App() {
   return (
 // we can pass props in the parent to child using it like the attribut 
@@ -13,9 +15,7 @@ function App() {
 //  }
 // so now if i dont pass anything to the props it would hsow us the default props so it is really good for us 
     <>
-    <h1>
-      movie app 
-    </h1>
+    <Navbar/>
     <MovieList/>
     </>
   );

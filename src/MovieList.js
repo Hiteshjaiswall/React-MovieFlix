@@ -11,7 +11,7 @@ class MovieList extends React.Component {
         //  second feature it have is to update the componenet data wihtout redirecting
         this.state={
             movies:[
-                {
+                {   id:1,
                     title:"Avengers Endgame",
                     plot:"Adrift in space with no food or water, Tony Stark sends a message to Pepper Potts as his oxygen supply starts to dwindle. Meanwhile, the remaining Avengers -- Thor, Black Widow, Captain America and Bruce Banner -- must figure out a way to bring back their vanquished allies for an epic showdown with Thanos -- the evil demigod who decimated the planet and the universe.",
                     price:199,
@@ -22,6 +22,7 @@ class MovieList extends React.Component {
                     kart:true,
                 },
                 {
+                    id:2,
                     title:"wolf of the wall street",
                     plot:"In 1987, Jordan Belfort (Leonardo DiCaprio) takes an entry-level job at a Wall Street brokerage firm. By the early 1990s, while still in his 20s, Belfort founds his own firm, Stratton Oakmont. Together with his trusted lieutenant (Jonah Hill) and a merry band of brokers, Belfort makes a huge fortune by defrauding wealthy investors out of millions.",
                     price:99,
@@ -32,6 +33,7 @@ class MovieList extends React.Component {
                     kart:true,
                 },
                 {
+                    id:3,
                     title:"The Perks of Being a Wallflower",
                     plot:"Socially awkward teen Charlie (Logan Lerman) is a wallflower, always watching life from the sidelines, until two charismatic students become his mentors. Free-spirited Sam (Emma Watson) and her stepbrother Patrick (Ezra Miller) help Charlie discover the joys of friendship, first love, music and more, while a teacher sparks Charlie's dreams of becoming a writer. ",
                     price:399,
@@ -47,7 +49,7 @@ class MovieList extends React.Component {
         // this.addstars=this.state.bind(this);
     }
     //  event handeler no will be differenet that we were using tin the initial 4
-
+//  even handeleer to handel the increasing of the stars 
     handleIncStar= (movie) => {
         const{movies}=this.state;
         const mid= movies.indexOf(movie)
@@ -59,6 +61,7 @@ class MovieList extends React.Component {
             movies:movies
         })
     }
+    //  evnet handeler to handele the decreasing of the stars
     handledecStar= (movie) => {
         const{movies}=this.state;
         const mid= movies.indexOf(movie)
@@ -68,6 +71,24 @@ class MovieList extends React.Component {
         movies[mid].stars-=0.5;
         this.setState({
             movies:movies
+        })
+    }
+//  event handeler to handel the favurite and remove fron the fanourite
+    handelFav=(movie)=>{
+        const{movies}=this.state;
+        const mid =movies.indexOf(movie);
+        movies[mid].fav= !movies[mid].fav;
+        this.setState({
+            movies
+        })
+    }
+    //  event handeler to handel the add to cart and remover form the cart
+    handelkart=(movie)=>{
+        const{movies}=this.state;
+        const mid =movies.indexOf(movie);
+        movies[mid].kart= !movies[mid].kart;
+        this.setState({
+            movies
         })
     }
     render() {
@@ -87,7 +108,12 @@ class MovieList extends React.Component {
                         />
             </> */}
             {movies.map((movie) => <MovieCard movies={movie}
-            addStar={this.handleIncStar}   decStar={this.handledecStar}         />)}
+            addStar={this.handleIncStar}   
+            decStar={this.handledecStar}         
+            Fav={this.handelFav}
+            Kart={this.handelkart}
+            key = {movie.id}
+            />)}
             </>
             
         )

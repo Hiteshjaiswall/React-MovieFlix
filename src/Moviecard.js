@@ -57,7 +57,7 @@ class MovieCard extends React.Component {
         // const {title, plot, rating, price, stars, fav, kart}=this.props;
         // im accesing props direct i passed as the object so thats wh imm using this 
         const {title, plot, rating, price, stars, fav, kart, poster}=this.props.movies;
-        const {movies, addStar, decStar}=this.props;
+        const {movies, addStar, decStar, Fav, Kart}=this.props;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -77,8 +77,8 @@ class MovieCard extends React.Component {
                             <span className="starsCount">{stars}</span>
                             </div>
                             {/* // conditional rendering for the fav and unfav buttpn  */}
-                            {fav?<button className="favourite-btn" onClick={this.handelfav}>Favourtie</button> :  <button className="unfavourite-btn" onClick={this.handelfav}>Un-Favourtie</button>}
-                            {kart?<button className="cart-btn" onClick={this.handelkart}>Add to cart</button> :  <button className="unfavourite-btn" onClick={this.handelkart}>Remove From Cart</button>}
+                            {fav?<button className="favourite-btn" onClick={()=> {Fav(movies)}}>Favourtie</button> :  <button className="unfavourite-btn" onClick={()=> {Fav(movies)}}>Un-Favourtie</button>}
+                            {kart?<button className="cart-btn" onClick={()=> {Kart(movies)}}>Add to cart</button> :  <button className="unfavourite-btn" onClick={()=> {Kart(movies)}}>Remove From Cart</button>}
                             
                         </div>
                     </div>
@@ -102,3 +102,8 @@ export default MovieCard;
 //         </>
 //     )
 // }
+// styling in react we can use four methods in the css 
+//  1. Css Stylesheet 
+//  2. inline Styling 
+//  3. styled component 
+//  4. Css module 
