@@ -1,5 +1,24 @@
 import React from "react";
+//  now lets inport the syle componenet since we wat to use that 
+import styled from "styled-components";
 //  we can use the classs componenet or the functional compoenent right now im using tht class compoenent later ill be using the functional componenet
+
+const Nav=styled.div`
+height: 70px;
+background: #4267b2;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+`
+const Title=styled.div`
+font-size: 30px;
+        color: #fff;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        text-transform: "uppercase";
+        margin-Left: 20;
+`
 class Navbar extends React.Component {
 
     //  how we will design our nav bar 
@@ -14,15 +33,20 @@ class Navbar extends React.Component {
                 {/* thasts how we write the inline css in the react  */}
                 {/* not a ideal way to style our app */}
                 {/* inline styling will overwtite all the syling al the style so it is prefered for that just a quick note */}
-                <div style={Styles.nav}>
-                    <div style={Styles.title}>
+                {/* <div style={Styles.nav}> */}
+                <Nav>
+                    {/* <div style={Styles.title}> */}
+                        <Title>
                         MOVIE-FLIX
-                    </div>
+                        </Title>
+                        
+                    {/* </div> */}
                     <div style={Styles.cartContainer}>
                         <img alt="Cart Icon" src="https://cdn-icons-png.flaticon.com/128/726/726496.png" style={Styles.cartIcon} />
                         <span style={Styles.cartCount}>0</span>
                     </div>
-                </div>
+                    </Nav>
+                {/* </div> */}
             </>
         )
     }
@@ -32,6 +56,12 @@ class Navbar extends React.Component {
 // if many developer are involve names of class might clash 
 //  so it is good to use the local scope 
 // i can also crete a sylt object an put it in the navbar to give style
+// in here we have to use the camelcase 
+//  using the styling css we can write the css in javascript 
+// style compnenet is the libary so as you kno it is lib we need to install in the system 
+//  benifts of using the syle componene tso it is the css in the javascript so it is like the css 
+// it is controlling your scope so normal css fileprovides the global scope but style copponenets has the local scope 
+// no class name clashes happening in the 
 const Styles = {
     nav: {
         height: 70,
