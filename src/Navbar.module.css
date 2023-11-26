@@ -1,0 +1,34 @@
+.title {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    text-transform: "uppercase";
+    margin-Left: 20;
+}
+.nav{
+    height: 70px;
+background: linear-gradient(to left, #4267b2,  #ff0000);
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: relative;
+}
+.cartIconContainer{
+    position: relative;
+cursor: pointer;
+}
+.cartCount{
+    background-color: yellow;
+    border-radius: 50%;
+    padding: 4px 8px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 12px;
+    
+}
+.cartIcon{
+    height: 30px;
+    margin-right: 20px;
+}
