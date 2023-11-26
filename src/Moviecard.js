@@ -37,9 +37,7 @@ class MovieCard extends React.Component {
     //     this.setState((previousState)=>{
     //         if(previousState.stars >= 0.5){
     //         return {
-                
     //             stars:previousState.stars-+0.5
-                
     //         }}
     //     })
     // })
@@ -79,7 +77,6 @@ class MovieCard extends React.Component {
                             {/* // conditional rendering for the fav and unfav buttpn  */}
                             {fav?<button className="favourite-btn" onClick={()=> {Fav(movies)}}>Favourtie</button> :  <button className="unfavourite-btn" onClick={()=> {Fav(movies)}}>Un-Favourtie</button>}
                             {kart?<button className="cart-btn" onClick={()=> {Kart(movies)}}>Add to cart</button> :  <button className="unfavourite-btn" onClick={()=> {Kart(movies)}}>Remove From Cart</button>}
-                            
                         </div>
                     </div>
                 </div>
